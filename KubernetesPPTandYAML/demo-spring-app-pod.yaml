@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: spring-app-pod
+    labels:
+        name: spring-app-pod
+        app: demo-spring-app
+spec:
+    containers:
+        - name: spring-app
+          image: jaideep11209/kubernetes:v1
+          ports:
+            - containerPort: 8080

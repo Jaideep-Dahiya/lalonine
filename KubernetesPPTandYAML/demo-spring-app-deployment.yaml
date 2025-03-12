@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: demo-spring-app-deploy
+    labels:
+        name: demo-spring-app-deploy
+        app: demo-spring-app
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            name: spring-app-pod
+            app: demo-spring-app
+    template:
+        metadata:
+            name: spring-app-pod
+            labels:
+                name: spring-app-pod
+                app: demo-spring-app
+        spec:
+            containers:
+                - name: spring-app
+                  image: jaideep11209/kubernetes:v2
+                  ports:
+                    - containerPort: 8080
