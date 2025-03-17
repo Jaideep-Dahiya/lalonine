@@ -1,4 +1,4 @@
-package com.example.demo.demo.pen;
+package com.example.demo.demo.lld.pen;
 
 public class gelPen extends pen implements refill{
 
@@ -19,9 +19,14 @@ public class gelPen extends pen implements refill{
         return "";
     }
 
-    @Override
+
     public boolean hasRefill() {
         return false;
+    }
+
+    @Override
+    public Reefill getRefill() {
+        return null;
     }
 
     @Override

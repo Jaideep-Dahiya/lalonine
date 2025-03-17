@@ -11,15 +11,14 @@ public class CommandRegistry {
 
     List<Command> commands = new ArrayList<>();
 
-    @Autowired
     private Command commandOne;
-
-    @Autowired
     private Command commandTwo;
 
     //add as many commands as you want
-
-    CommandRegistry() {
+    @Autowired
+    CommandRegistry(Command commandOne,Command commandTwo) {
+        this.commandOne = commandOne;
+        this.commandTwo = commandTwo;
         commands.add(commandOne);
         commands.add(commandTwo);
         // just add them here as well
@@ -31,7 +30,7 @@ public class CommandRegistry {
         //get input
         String input = "";
         for(Command c : commands){
-           if( c.canExecute(input)){
+           if(c.canExecute(input)){
                c.execute(input);
            }
         }

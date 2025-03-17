@@ -1,4 +1,4 @@
-package com.example.demo.demo.pen;
+package com.example.demo.demo.lld.pen;
 
 public enum PenType {
     GEL,

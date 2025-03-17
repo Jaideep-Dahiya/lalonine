@@ -11,8 +11,12 @@ import java.util.Scanner;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-	@Autowired
 	private CommandRegistry commandRegistry;
+
+	@Autowired
+	DemoApplication(CommandRegistry commandRegistry){
+		this.commandRegistry = commandRegistry;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
