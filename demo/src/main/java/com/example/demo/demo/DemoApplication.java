@@ -4,11 +4,15 @@ import com.example.demo.demo.commands.CommandRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Scanner;
 
 @SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "com.example.demo")
 public class DemoApplication implements CommandLineRunner {
 
 	private CommandRegistry commandRegistry;
