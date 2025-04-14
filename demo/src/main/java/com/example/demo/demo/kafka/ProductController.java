@@ -29,6 +29,17 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<ProductDto> sendEvent(@RequestBody ProductDto productDto){
 
+
+//        for use when you want to add HEADER IN KAFKA MESSAGE
+//        ProducerRecord<String, ProductCreatedEvent> record = new ProducerRecord<>(
+//                "product-created-events-topic",
+//                productId,
+//                productCreatedEvent);
+//        record.headers().add("messageId", UUID.randomUUID().toString().getBytes());
+//
+//        SendResult<String, ProductCreatedEvent> result =
+//                kafkaTemplate.send(record).get();
+
         CompletableFuture<SendResult<String,ProductDto>> future = kafkaTemplate.send("product-created-events-topic","wow i sent it",productDto);
 
         future.whenComplete((result,exception) -> {
